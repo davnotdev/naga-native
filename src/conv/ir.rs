@@ -210,6 +210,8 @@ pub fn address_space_to_ffi(address_space: &naga::ir::AddressSpace) -> ffi::Naga
             tag: ffi::NagaAddressSpaceTag_NagaAddressSpaceTag_TaskPayload,
             data: default_data,
         },
+        naga::AddressSpace::RayPayload => todo!(),
+        naga::AddressSpace::IncomingRayPayload => todo!(),
     }
 }
 
@@ -316,6 +318,7 @@ pub fn interpolation_to_ffi(interpolation: &naga::ir::Interpolation) -> ffi::Nag
         naga::Interpolation::Perspective => ffi::NagaInterpolation_NagaInterpolation_Perspective,
         naga::Interpolation::Linear => ffi::NagaInterpolation_NagaInterpolation_Linear,
         naga::Interpolation::Flat => ffi::NagaInterpolation_NagaInterpolation_Flat,
+        naga::Interpolation::PerVertex => todo!(),
     }
 }
 
@@ -676,6 +679,12 @@ pub fn type_inner_to_ffi(type_inner: &naga::ir::TypeInner) -> ffi::NagaTypeInner
                 },
             },
         },
+        naga::TypeInner::CooperativeMatrix {
+            columns,
+            rows,
+            scalar,
+            role,
+        } => todo!(),
     }
 }
 
@@ -803,6 +812,10 @@ pub fn shader_stage_to_ffi(shader_stage: &naga::ir::ShaderStage) -> ffi::NagaSha
         naga::ShaderStage::Mesh => ffi::NagaShaderStage_NagaShaderStage_Mesh,
         naga::ShaderStage::Fragment => ffi::NagaShaderStage_NagaShaderStage_Fragment,
         naga::ShaderStage::Compute => ffi::NagaShaderStage_NagaShaderStage_Compute,
+        naga::ShaderStage::RayGeneration => todo!(),
+        naga::ShaderStage::Miss => todo!(),
+        naga::ShaderStage::AnyHit => todo!(),
+        naga::ShaderStage::ClosestHit => todo!(),
     }
 }
 

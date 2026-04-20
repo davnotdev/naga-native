@@ -224,7 +224,9 @@ pub fn constant_evaluator_error_to_ffi(
         tag: ffi::NagaConstantEvaluatorErrorTag_NagaConstantEvaluatorErrorTag_SelectAcceptRejectTypeMismatch,
         data: default_data,
     },
-}
+        naga::proc::ConstantEvaluatorError::InvalidMathArgValue(_) => todo!(),
+        naga::proc::ConstantEvaluatorError::CooperativeOperation => todo!(),
+    }
 }
 
 pub fn bound_check_policy_to_ffi(
