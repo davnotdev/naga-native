@@ -21,7 +21,7 @@ spv-out = ["naga/spv-out"]
 wgsl-out = ["naga/wgsl-out"]
 
 [dependencies]
-naga = { version = "29", default-features = false, features = [] }
+naga = { git = "https://github.com/davnotdev/wgpu", branch = "naga-patches-wgpu-29", version = "*", default-features = false, features = [] }
 static_assertions = "1.1.0"
 
 [build-dependencies]

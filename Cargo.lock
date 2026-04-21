@@ -245,8 +245,7 @@ checksum = "68354c5c6bd36d73ff3feceb05efa59b6acb7626617f4962be322a825e61f79a"
 [[package]]
 name = "naga"
 version = "29.0.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "aa2630921705b9b01dcdd0b6864b9562ca3c1951eecd0f0c4f5f04f61e412647"
+source = "git+https://github.com/davnotdev/wgpu?branch=naga-patches-wgpu-29#8717a65991786a4bff4e6ace5a3d56cdcde19829"
 dependencies = [
  "arrayvec",
  "bit-set",

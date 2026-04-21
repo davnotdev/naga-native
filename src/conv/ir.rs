@@ -378,10 +378,6 @@ pub fn built_in_to_ffi(built_in: &naga::ir::BuiltIn) -> ffi::NagaBuiltIn {
             tag: ffi::NagaBuiltInTag_NagaBuiltInTag_VertexIndex,
             data: default_data,
         },
-        naga::BuiltIn::DrawID => ffi::NagaBuiltIn {
-            tag: ffi::NagaBuiltInTag_NagaBuiltInTag_DrawID,
-            data: default_data,
-        },
         naga::BuiltIn::FragDepth => ffi::NagaBuiltIn {
             tag: ffi::NagaBuiltInTag_NagaBuiltInTag_FragDepth,
             data: default_data,
@@ -398,7 +394,7 @@ pub fn built_in_to_ffi(built_in: &naga::ir::BuiltIn) -> ffi::NagaBuiltIn {
             tag: ffi::NagaBuiltInTag_NagaBuiltInTag_PrimitiveIndex,
             data: default_data,
         },
-        naga::BuiltIn::Barycentric => ffi::NagaBuiltIn {
+        naga::BuiltIn::Barycentric { perspective } => ffi::NagaBuiltIn {
             tag: ffi::NagaBuiltInTag_NagaBuiltInTag_Barycentric,
             data: default_data,
         },
@@ -486,6 +482,20 @@ pub fn built_in_to_ffi(built_in: &naga::ir::BuiltIn) -> ffi::NagaBuiltIn {
             tag: ffi::NagaBuiltInTag_NagaBuiltInTag_Primitives,
             data: default_data,
         },
+        naga::BuiltIn::DrawIndex => todo!(),
+        naga::BuiltIn::RayInvocationId => todo!(),
+        naga::BuiltIn::NumRayInvocations => todo!(),
+        naga::BuiltIn::InstanceCustomData => todo!(),
+        naga::BuiltIn::GeometryIndex => todo!(),
+        naga::BuiltIn::WorldRayOrigin => todo!(),
+        naga::BuiltIn::WorldRayDirection => todo!(),
+        naga::BuiltIn::ObjectRayOrigin => todo!(),
+        naga::BuiltIn::ObjectRayDirection => todo!(),
+        naga::BuiltIn::RayTmin => todo!(),
+        naga::BuiltIn::RayTCurrentMax => todo!(),
+        naga::BuiltIn::ObjectToWorld => todo!(),
+        naga::BuiltIn::WorldToObject => todo!(),
+        naga::BuiltIn::HitKind => todo!(),
     }
 }
 

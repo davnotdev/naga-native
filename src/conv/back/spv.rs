@@ -3,7 +3,7 @@ use super::*;
 pub fn spv_back_capability_to_ffi(
     capability: &naga::back::spv::Capability,
 ) -> ffi::NagaSPVBackCapability {
-    match capability {
+    match *capability {
         naga::back::spv::Capability::Matrix => ffi::NagaSPVBackCapability_NagaSPVBackCapability_Matrix,
         naga::back::spv::Capability::Shader => ffi::NagaSPVBackCapability_NagaSPVBackCapability_Shader,
         naga::back::spv::Capability::Geometry => ffi::NagaSPVBackCapability_NagaSPVBackCapability_Geometry,
@@ -608,9 +608,6 @@ pub fn spv_back_capability_to_ffi(
         naga::back::spv::Capability::AtomicFloat64AddEXT => {
             ffi::NagaSPVBackCapability_NagaSPVBackCapability_AtomicFloat64AddEXT
         }
-        naga::back::spv::Capability::LongConstantCompositeINTEL => {
-            ffi::NagaSPVBackCapability_NagaSPVBackCapability_LongConstantCompositeINTEL
-        }
         naga::back::spv::Capability::OptNoneINTEL => {
             ffi::NagaSPVBackCapability_NagaSPVBackCapability_OptNoneINTEL
         }
@@ -650,6 +647,84 @@ pub fn spv_back_capability_to_ffi(
         naga::back::spv::Capability::CacheControlsINTEL => {
             ffi::NagaSPVBackCapability_NagaSPVBackCapability_CacheControlsINTEL
         }
+        naga::back::spv::Capability::TensorsARM => todo!(),
+        naga::back::spv::Capability::StorageTensorArrayDynamicIndexingARM => todo!(),
+        naga::back::spv::Capability::StorageTensorArrayNonUniformIndexingARM => todo!(),
+        naga::back::spv::Capability::GraphARM => todo!(),
+        naga::back::spv::Capability::CooperativeMatrixLayoutsARM => todo!(),
+        naga::back::spv::Capability::Float8EXT => todo!(),
+        naga::back::spv::Capability::Float8CooperativeMatrixEXT => todo!(),
+        naga::back::spv::Capability::UntypedPointersKHR => todo!(),
+        naga::back::spv::Capability::TileShadingQCOM => todo!(),
+        naga::back::spv::Capability::CooperativeMatrixConversionQCOM => todo!(),
+        naga::back::spv::Capability::TextureBlockMatch2QCOM => todo!(),
+        naga::back::spv::Capability::QuadControlKHR => todo!(),
+        naga::back::spv::Capability::Int4TypeINTEL => todo!(),
+        naga::back::spv::Capability::Int4CooperativeMatrixINTEL => todo!(),
+        naga::back::spv::Capability::BFloat16TypeKHR => todo!(),
+        naga::back::spv::Capability::BFloat16DotProductKHR => todo!(),
+        naga::back::spv::Capability::BFloat16CooperativeMatrixKHR => todo!(),
+        naga::back::spv::Capability::DescriptorHeapEXT => todo!(),
+        naga::back::spv::Capability::ComputeDerivativeGroupQuadsKHR => todo!(),
+        naga::back::spv::Capability::GroupNonUniformPartitionedEXT => todo!(),
+        naga::back::spv::Capability::ComputeDerivativeGroupLinearKHR => todo!(),
+        naga::back::spv::Capability::ShaderInvocationReorderEXT => todo!(),
+        naga::back::spv::Capability::CooperativeVectorNV => todo!(),
+        naga::back::spv::Capability::AtomicFloat16VectorNV => todo!(),
+        naga::back::spv::Capability::RawAccessChainsNV => todo!(),
+        naga::back::spv::Capability::RayTracingSpheresGeometryNV => todo!(),
+        naga::back::spv::Capability::RayTracingLinearSweptSpheresGeometryNV => todo!(),
+        naga::back::spv::Capability::PushConstantBanksNV => todo!(),
+        naga::back::spv::Capability::LongVectorEXT => todo!(),
+        naga::back::spv::Capability::Shader64BitIndexingEXT => todo!(),
+        naga::back::spv::Capability::CooperativeMatrixReductionsNV => todo!(),
+        naga::back::spv::Capability::CooperativeMatrixConversionsNV => todo!(),
+        naga::back::spv::Capability::CooperativeMatrixPerElementOperationsNV => todo!(),
+        naga::back::spv::Capability::CooperativeMatrixTensorAddressingNV => todo!(),
+        naga::back::spv::Capability::CooperativeMatrixBlockLoadsNV => todo!(),
+        naga::back::spv::Capability::CooperativeVectorTrainingNV => todo!(),
+        naga::back::spv::Capability::RayTracingClusterAccelerationStructureNV => todo!(),
+        naga::back::spv::Capability::TensorAddressingNV => todo!(),
+        naga::back::spv::Capability::FPGAMemoryAttributesALTERA => todo!(),
+        naga::back::spv::Capability::ArbitraryPrecisionIntegersALTERA => todo!(),
+        naga::back::spv::Capability::ArbitraryPrecisionFloatingPointALTERA => todo!(),
+        naga::back::spv::Capability::FPGALoopControlsALTERA => todo!(),
+        naga::back::spv::Capability::FPGAMemoryAccessesALTERA => todo!(),
+        naga::back::spv::Capability::FPGAClusterAttributesALTERA => todo!(),
+        naga::back::spv::Capability::LoopFuseALTERA => todo!(),
+        naga::back::spv::Capability::FPGADSPControlALTERA => todo!(),
+        naga::back::spv::Capability::FPGAInvocationPipeliningAttributesALTERA => todo!(),
+        naga::back::spv::Capability::FPGABufferLocationALTERA => todo!(),
+        naga::back::spv::Capability::ArbitraryPrecisionFixedPointALTERA => todo!(),
+        naga::back::spv::Capability::USMStorageClassesALTERA => todo!(),
+        naga::back::spv::Capability::RuntimeAlignedAttributeALTERA => todo!(),
+        naga::back::spv::Capability::IOPipesALTERA => todo!(),
+        naga::back::spv::Capability::BlockingPipesALTERA => todo!(),
+        naga::back::spv::Capability::FPGARegALTERA => todo!(),
+        naga::back::spv::Capability::ReplicatedCompositesEXT => todo!(),
+        naga::back::spv::Capability::FloatControls2 => todo!(),
+        naga::back::spv::Capability::FMAKHR => todo!(),
+        naga::back::spv::Capability::LongCompositesINTEL => todo!(),
+        naga::back::spv::Capability::OptNoneEXT => todo!(),
+        naga::back::spv::Capability::ArithmeticFenceEXT => todo!(),
+        naga::back::spv::Capability::FPGAClusterAttributesV2ALTERA => todo!(),
+        naga::back::spv::Capability::TaskSequenceALTERA => todo!(),
+        naga::back::spv::Capability::FPGALatencyControlALTERA => todo!(),
+        naga::back::spv::Capability::FPGAArgumentInterfacesALTERA => todo!(),
+        naga::back::spv::Capability::GlobalVariableFPGADecorationsALTERA => todo!(),
+        naga::back::spv::Capability::SubgroupBufferPrefetchINTEL => todo!(),
+        naga::back::spv::Capability::Subgroup2DBlockIOINTEL => todo!(),
+        naga::back::spv::Capability::Subgroup2DBlockTransformINTEL => todo!(),
+        naga::back::spv::Capability::Subgroup2DBlockTransposeINTEL => todo!(),
+        naga::back::spv::Capability::SubgroupMatrixMultiplyAccumulateINTEL => todo!(),
+        naga::back::spv::Capability::TernaryBitwiseFunctionINTEL => todo!(),
+        naga::back::spv::Capability::UntypedVariableLengthArrayINTEL => todo!(),
+        naga::back::spv::Capability::SpecConditionalINTEL => todo!(),
+        naga::back::spv::Capability::FunctionVariantsINTEL => todo!(),
+        naga::back::spv::Capability::TensorFloat32RoundingINTEL => todo!(),
+        naga::back::spv::Capability::MaskedGatherScatterINTEL => todo!(),
+        naga::back::spv::Capability::RegisterLimitsINTEL => todo!(),
+        naga::back::spv::Capability::BindlessImagesINTEL => todo!(),
     }
 }
 
@@ -1261,9 +1336,6 @@ pub fn spv_back_capability_to_naga(
         ffi::NagaSPVBackCapability_NagaSPVBackCapability_AtomicFloat64AddEXT => {
             naga::back::spv::Capability::AtomicFloat64AddEXT
         }
-        ffi::NagaSPVBackCapability_NagaSPVBackCapability_LongConstantCompositeINTEL => {
-            naga::back::spv::Capability::LongConstantCompositeINTEL
-        }
         ffi::NagaSPVBackCapability_NagaSPVBackCapability_OptNoneINTEL => {
             naga::back::spv::Capability::OptNoneINTEL
         }
@@ -1468,6 +1540,8 @@ pub fn spv_back_options_to_naga(options: &ffi::NagaSPVBackOptions) -> naga::back
         ray_query_initialization_tracking: bool_to_naga(options.ray_query_initialization_tracking),
         use_storage_input_output_16: bool_to_naga(options.use_storage_input_output_16),
         debug_info: None,
+        task_dispatch_limits: Default::default(),
+        mesh_shader_primitive_indices_clamp: Default::default(),
     }
 }
 

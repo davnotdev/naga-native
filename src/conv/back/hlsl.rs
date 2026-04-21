@@ -34,6 +34,8 @@ pub fn hlsl_back_shader_model_to_ffi(
         naga::back::hlsl::ShaderModel::V6_7 => {
             ffi::NagaHLSLBackShaderModel_NagaHLSLBackShaderModel_V6_7
         }
+        naga::back::hlsl::ShaderModel::V6_8 => todo!(),
+        naga::back::hlsl::ShaderModel::V6_9 => todo!(),
     }
 }
 
@@ -234,6 +236,7 @@ pub fn hlsl_back_options_to_naga(options: &ffi::NagaHLSLBackOptions) -> naga::ba
         zero_initialize_workgroup_memory: bool_to_naga(options.zero_initialize_workgroup_memory),
         restrict_indexing: bool_to_naga(options.restrict_indexing),
         force_loop_bounding: bool_to_naga(options.force_loop_bounding),
+        ray_query_initialization_tracking: Default::default(),
     }
 }
 

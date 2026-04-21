@@ -52,5 +52,6 @@ pub fn pipeline_constant_error_to_ffi(
                 data: ffi::NagaPipelineConstantError__bindgen_ty_1::default(),
             }
         }
+        naga::back::pipeline_constants::PipelineConstantError::NotFound(_) => todo!(),
     }
 }

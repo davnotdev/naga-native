@@ -310,10 +310,6 @@ pub fn spv_front_error_to_ffi(error: &naga::front::spv::Error) -> ffi::NagaSPVFr
                 invalid_image_expression: EMPTY_MUT,
             },
         },
-        naga::front::spv::Error::InvalidImageWriteType => ffi::NagaSPVFrontError {
-            tag: ffi::NagaSPVFrontErrorTag_NagaSPVFrontErrorTag_InvalidImageWriteType,
-            data: default_data,
-        },
         naga::front::spv::Error::InvalidImageBaseType(handle) => ffi::NagaSPVFrontError {
             tag: ffi::NagaSPVFrontErrorTag_NagaSPVFrontErrorTag_InvalidImageBaseType,
             data: ffi::NagaSPVFrontError__bindgen_ty_1 {
@@ -424,5 +420,8 @@ pub fn spv_front_error_to_ffi(error: &naga::front::spv::Error) -> ffi::NagaSPVFr
                 atomic_upgrade_error: atmoic_upgrade_front_error_to_ffi(error),
             },
         },
+        naga::front::spv::Error::InvalidImageDepthStorage => todo!(),
+        naga::front::spv::Error::InvalidStorageImageWithoutFormat => todo!(),
+        naga::front::spv::Error::InvalidImageBaseType(_) => todo!(),
     }
 }

@@ -851,6 +851,7 @@ pub fn msl_back_error_to_ffi(error: &naga::back::msl::Error) -> ffi::NagaMSLBack
                 },
             },
         },
+        naga::back::msl::Error::UnsupportedCooperativeMatrix => todo!(),
     }
 }
 

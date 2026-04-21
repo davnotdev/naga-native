@@ -13,6 +13,7 @@ pub fn wgsl_front_options_to_naga(
 ) -> naga::front::wgsl::Options {
     naga::front::wgsl::Options {
         parse_doc_comments: bool_to_naga(options.parse_doc_comments),
+        capabilities: Default::default(),
     }
 }
 
