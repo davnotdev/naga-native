@@ -6,6 +6,8 @@ fn main() {
         .derive_default(true)
         .parse_callbacks(Box::new(bindgen::CargoCallbacks::new()))
         .clang_arg("-DNAGA_FFI_NO_METHODS")
+        // HACK: Well... we shouldn't need to do this.
+        .blocklist_item("max_align_t")
         .generate()
         .expect("Unable to generate bindings");
 
