@@ -5,7 +5,11 @@ pub fn wgsl_back_writer_flags_to_naga(
 ) -> naga::back::wgsl::WriterFlags {
     let mut result = naga::back::wgsl::WriterFlags::empty();
 
-    if flags & ffi::NagaWGSLBackWriterFlags_NagaWGSLBackWriterFlags_EXPLICIT_TYPES != 0 {
+    if flags
+        & (ffi::NagaWGSLBackWriterFlags_NagaWGSLBackWriterFlags_EXPLICIT_TYPES
+            as ffi::NagaWGSLBackWriterFlagsFlags)
+        != 0
+    {
         result |= naga::back::wgsl::WriterFlags::EXPLICIT_TYPES;
     }
 

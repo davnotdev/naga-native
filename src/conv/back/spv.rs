@@ -1391,27 +1391,48 @@ pub fn spv_back_capability_set_to_naga(
 }
 
 pub fn spv_back_writer_flags_to_naga(
-    flags: ffi::NagaSPVBackWriterFlags,
+    flags: ffi::NagaSPVBackWriterFlagsFlags,
 ) -> naga::back::spv::WriterFlags {
     let mut result = naga::back::spv::WriterFlags::empty();
 
-    if flags & ffi::NagaSPVBackWriterFlags_NagaSPVBackWriterFlags_DEBUG != 0 {
+    if flags
+        & (ffi::NagaSPVBackWriterFlags_NagaSPVBackWriterFlags_DEBUG
+            as ffi::NagaSPVBackWriterFlagsFlags)
+        != 0
+    {
         result |= naga::back::spv::WriterFlags::DEBUG;
     }
-    if flags & ffi::NagaSPVBackWriterFlags_NagaSPVBackWriterFlags_ADJUST_COORDINATE_SPACE != 0 {
+    if flags
+        & (ffi::NagaSPVBackWriterFlags_NagaSPVBackWriterFlags_ADJUST_COORDINATE_SPACE
+            as ffi::NagaSPVBackWriterFlagsFlags)
+        != 0
+    {
         result |= naga::back::spv::WriterFlags::ADJUST_COORDINATE_SPACE;
     }
-    if flags & ffi::NagaSPVBackWriterFlags_NagaSPVBackWriterFlags_LABEL_VARYINGS != 0 {
+    if flags
+        & (ffi::NagaSPVBackWriterFlags_NagaSPVBackWriterFlags_LABEL_VARYINGS
+            as ffi::NagaSPVBackWriterFlagsFlags)
+        != 0
+    {
         result |= naga::back::spv::WriterFlags::LABEL_VARYINGS;
     }
-    if flags & ffi::NagaSPVBackWriterFlags_NagaSPVBackWriterFlags_FORCE_POINT_SIZE != 0 {
+    if flags
+        & (ffi::NagaSPVBackWriterFlags_NagaSPVBackWriterFlags_FORCE_POINT_SIZE
+            as ffi::NagaSPVBackWriterFlagsFlags)
+        != 0
+    {
         result |= naga::back::spv::WriterFlags::FORCE_POINT_SIZE;
     }
-    if flags & ffi::NagaSPVBackWriterFlags_NagaSPVBackWriterFlags_CLAMP_FRAG_DEPTH != 0 {
+    if flags
+        & (ffi::NagaSPVBackWriterFlags_NagaSPVBackWriterFlags_CLAMP_FRAG_DEPTH
+            as ffi::NagaSPVBackWriterFlagsFlags)
+        != 0
+    {
         result |= naga::back::spv::WriterFlags::CLAMP_FRAG_DEPTH;
     }
     if flags
-        & ffi::NagaSPVBackWriterFlags_NagaSPVBackWriterFlags_PRINT_ON_RAY_QUERY_INITIALIZATION_FAIL
+        & (ffi::NagaSPVBackWriterFlags_NagaSPVBackWriterFlags_PRINT_ON_RAY_QUERY_INITIALIZATION_FAIL
+            as ffi::NagaSPVBackWriterFlagsFlags)
         != 0
     {
         result |= naga::back::spv::WriterFlags::PRINT_ON_RAY_QUERY_INITIALIZATION_FAIL;

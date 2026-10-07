@@ -100,13 +100,13 @@ pub fn storage_access_to_ffi(
 ) -> ffi::NagaStorageAccessFlags {
     let mut result: ffi::NagaStorageAccessFlags = 0;
     if storage_access.contains(naga::ir::StorageAccess::LOAD) {
-        result |= ffi::NagaStorageAccess_NagaStorageAccess_LOAD;
+        result |= ffi::NagaStorageAccess_NagaStorageAccess_LOAD as ffi::NagaStorageAccessFlags;
     }
     if storage_access.contains(naga::ir::StorageAccess::STORE) {
-        result |= ffi::NagaStorageAccess_NagaStorageAccess_STORE;
+        result |= ffi::NagaStorageAccess_NagaStorageAccess_STORE as ffi::NagaStorageAccessFlags;
     }
     if storage_access.contains(naga::ir::StorageAccess::ATOMIC) {
-        result |= ffi::NagaStorageAccess_NagaStorageAccess_ATOMIC;
+        result |= ffi::NagaStorageAccess_NagaStorageAccess_ATOMIC as ffi::NagaStorageAccessFlags;
     }
     sa::const_assert_eq!(
         naga::ir::StorageAccess::all().bits(),
@@ -860,11 +860,17 @@ pub fn entry_point_to_ffi(entry_point: &naga::ir::EntryPoint) -> ffi::NagaEntryP
 }
 
 pub fn module_to_ffi(module: naga::ir::Module, flags: ffi::NagaModuleFillFlags) -> ffi::NagaModule {
-    let use_types = (flags & ffi::NagaModuleFill_NagaModuleFill_Types) != 0;
-    let use_constants = (flags & ffi::NagaModuleFill_NagaModuleFill_Constants) != 0;
-    let use_overrides = (flags & ffi::NagaModuleFill_NagaModuleFill_Overrides) != 0;
-    let use_global_variables = (flags & ffi::NagaModuleFill_NagaModuleFill_GlobalVariables) != 0;
-    let use_entry_points = (flags & ffi::NagaModuleFill_NagaModuleFill_EntryPoints) != 0;
+    let use_types =
+        (flags & (ffi::NagaModuleFill_NagaModuleFill_Types as ffi::NagaModuleFillFlags)) != 0;
+    let use_constants =
+        (flags & (ffi::NagaModuleFill_NagaModuleFill_Constants as ffi::NagaModuleFillFlags)) != 0;
+    let use_overrides =
+        (flags & (ffi::NagaModuleFill_NagaModuleFill_Overrides as ffi::NagaModuleFillFlags)) != 0;
+    let use_global_variables = (flags
+        & (ffi::NagaModuleFill_NagaModuleFill_GlobalVariables as ffi::NagaModuleFillFlags))
+        != 0;
+    let use_entry_points =
+        (flags & (ffi::NagaModuleFill_NagaModuleFill_EntryPoints as ffi::NagaModuleFillFlags)) != 0;
 
     let module = Box::new(module);
     let module = Box::leak(module);

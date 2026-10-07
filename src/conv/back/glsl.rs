@@ -20,19 +20,39 @@ pub fn glsl_back_writer_flags_to_naga(
 ) -> naga::back::glsl::WriterFlags {
     let mut result = naga::back::glsl::WriterFlags::empty();
 
-    if flags & ffi::NagaGLSLBackWriterFlags_NagaGLSLBackWriterFlags_ADJUST_COORDINATE_SPACE != 0 {
+    if flags
+        & (ffi::NagaGLSLBackWriterFlags_NagaGLSLBackWriterFlags_ADJUST_COORDINATE_SPACE
+            as ffi::NagaGLSLBackWriterFlagsFlags)
+        != 0
+    {
         result |= naga::back::glsl::WriterFlags::ADJUST_COORDINATE_SPACE;
     }
-    if flags & ffi::NagaGLSLBackWriterFlags_NagaGLSLBackWriterFlags_TEXTURE_SHADOW_LOD != 0 {
+    if flags
+        & (ffi::NagaGLSLBackWriterFlags_NagaGLSLBackWriterFlags_TEXTURE_SHADOW_LOD
+            as ffi::NagaGLSLBackWriterFlagsFlags)
+        != 0
+    {
         result |= naga::back::glsl::WriterFlags::TEXTURE_SHADOW_LOD;
     }
-    if flags & ffi::NagaGLSLBackWriterFlags_NagaGLSLBackWriterFlags_DRAW_PARAMETERS != 0 {
+    if flags
+        & (ffi::NagaGLSLBackWriterFlags_NagaGLSLBackWriterFlags_DRAW_PARAMETERS
+            as ffi::NagaGLSLBackWriterFlagsFlags)
+        != 0
+    {
         result |= naga::back::glsl::WriterFlags::DRAW_PARAMETERS;
     }
-    if flags & ffi::NagaGLSLBackWriterFlags_NagaGLSLBackWriterFlags_INCLUDE_UNUSED_ITEMS != 0 {
+    if flags
+        & (ffi::NagaGLSLBackWriterFlags_NagaGLSLBackWriterFlags_INCLUDE_UNUSED_ITEMS
+            as ffi::NagaGLSLBackWriterFlagsFlags)
+        != 0
+    {
         result |= naga::back::glsl::WriterFlags::INCLUDE_UNUSED_ITEMS;
     }
-    if flags & ffi::NagaGLSLBackWriterFlags_NagaGLSLBackWriterFlags_FORCE_POINT_SIZE != 0 {
+    if flags
+        & (ffi::NagaGLSLBackWriterFlags_NagaGLSLBackWriterFlags_FORCE_POINT_SIZE
+            as ffi::NagaGLSLBackWriterFlagsFlags)
+        != 0
+    {
         result |= naga::back::glsl::WriterFlags::FORCE_POINT_SIZE;
     }
 
@@ -88,82 +108,108 @@ pub fn glsl_back_features_to_ffi(
     let mut result: ffi::NagaGLSLBackFeaturesFlags = 0;
 
     if features.contains(naga::back::glsl::Features::BUFFER_STORAGE) {
-        result |= ffi::NagaGLSLBackFeatures_NagaGLSLBackFeatures_BUFFER_STORAGE;
+        result |= ffi::NagaGLSLBackFeatures_NagaGLSLBackFeatures_BUFFER_STORAGE
+            as ffi::NagaGLSLBackFeaturesFlags;
     }
     if features.contains(naga::back::glsl::Features::ARRAY_OF_ARRAYS) {
-        result |= ffi::NagaGLSLBackFeatures_NagaGLSLBackFeatures_ARRAY_OF_ARRAYS;
+        result |= ffi::NagaGLSLBackFeatures_NagaGLSLBackFeatures_ARRAY_OF_ARRAYS
+            as ffi::NagaGLSLBackFeaturesFlags;
     }
     if features.contains(naga::back::glsl::Features::DOUBLE_TYPE) {
-        result |= ffi::NagaGLSLBackFeatures_NagaGLSLBackFeatures_DOUBLE_TYPE;
+        result |= ffi::NagaGLSLBackFeatures_NagaGLSLBackFeatures_DOUBLE_TYPE
+            as ffi::NagaGLSLBackFeaturesFlags;
     }
     if features.contains(naga::back::glsl::Features::FULL_IMAGE_FORMATS) {
-        result |= ffi::NagaGLSLBackFeatures_NagaGLSLBackFeatures_FULL_IMAGE_FORMATS;
+        result |= ffi::NagaGLSLBackFeatures_NagaGLSLBackFeatures_FULL_IMAGE_FORMATS
+            as ffi::NagaGLSLBackFeaturesFlags;
     }
     if features.contains(naga::back::glsl::Features::MULTISAMPLED_TEXTURES) {
-        result |= ffi::NagaGLSLBackFeatures_NagaGLSLBackFeatures_MULTISAMPLED_TEXTURES;
+        result |= ffi::NagaGLSLBackFeatures_NagaGLSLBackFeatures_MULTISAMPLED_TEXTURES
+            as ffi::NagaGLSLBackFeaturesFlags;
     }
     if features.contains(naga::back::glsl::Features::MULTISAMPLED_TEXTURE_ARRAYS) {
-        result |= ffi::NagaGLSLBackFeatures_NagaGLSLBackFeatures_MULTISAMPLED_TEXTURE_ARRAYS;
+        result |= ffi::NagaGLSLBackFeatures_NagaGLSLBackFeatures_MULTISAMPLED_TEXTURE_ARRAYS
+            as ffi::NagaGLSLBackFeaturesFlags;
     }
     if features.contains(naga::back::glsl::Features::CUBE_TEXTURES_ARRAY) {
-        result |= ffi::NagaGLSLBackFeatures_NagaGLSLBackFeatures_CUBE_TEXTURES_ARRAY;
+        result |= ffi::NagaGLSLBackFeatures_NagaGLSLBackFeatures_CUBE_TEXTURES_ARRAY
+            as ffi::NagaGLSLBackFeaturesFlags;
     }
     if features.contains(naga::back::glsl::Features::COMPUTE_SHADER) {
-        result |= ffi::NagaGLSLBackFeatures_NagaGLSLBackFeatures_COMPUTE_SHADER;
+        result |= ffi::NagaGLSLBackFeatures_NagaGLSLBackFeatures_COMPUTE_SHADER
+            as ffi::NagaGLSLBackFeaturesFlags;
     }
     if features.contains(naga::back::glsl::Features::IMAGE_LOAD_STORE) {
-        result |= ffi::NagaGLSLBackFeatures_NagaGLSLBackFeatures_IMAGE_LOAD_STORE;
+        result |= ffi::NagaGLSLBackFeatures_NagaGLSLBackFeatures_IMAGE_LOAD_STORE
+            as ffi::NagaGLSLBackFeaturesFlags;
     }
     if features.contains(naga::back::glsl::Features::CONSERVATIVE_DEPTH) {
-        result |= ffi::NagaGLSLBackFeatures_NagaGLSLBackFeatures_CONSERVATIVE_DEPTH;
+        result |= ffi::NagaGLSLBackFeatures_NagaGLSLBackFeatures_CONSERVATIVE_DEPTH
+            as ffi::NagaGLSLBackFeaturesFlags;
     }
     if features.contains(naga::back::glsl::Features::NOPERSPECTIVE_QUALIFIER) {
-        result |= ffi::NagaGLSLBackFeatures_NagaGLSLBackFeatures_NOPERSPECTIVE_QUALIFIER;
+        result |= ffi::NagaGLSLBackFeatures_NagaGLSLBackFeatures_NOPERSPECTIVE_QUALIFIER
+            as ffi::NagaGLSLBackFeaturesFlags;
     }
     if features.contains(naga::back::glsl::Features::SAMPLE_QUALIFIER) {
-        result |= ffi::NagaGLSLBackFeatures_NagaGLSLBackFeatures_SAMPLE_QUALIFIER;
+        result |= ffi::NagaGLSLBackFeatures_NagaGLSLBackFeatures_SAMPLE_QUALIFIER
+            as ffi::NagaGLSLBackFeaturesFlags;
     }
     if features.contains(naga::back::glsl::Features::CLIP_DISTANCE) {
-        result |= ffi::NagaGLSLBackFeatures_NagaGLSLBackFeatures_CLIP_DISTANCE;
+        result |= ffi::NagaGLSLBackFeatures_NagaGLSLBackFeatures_CLIP_DISTANCE
+            as ffi::NagaGLSLBackFeaturesFlags;
     }
     if features.contains(naga::back::glsl::Features::CULL_DISTANCE) {
-        result |= ffi::NagaGLSLBackFeatures_NagaGLSLBackFeatures_CULL_DISTANCE;
+        result |= ffi::NagaGLSLBackFeatures_NagaGLSLBackFeatures_CULL_DISTANCE
+            as ffi::NagaGLSLBackFeaturesFlags;
     }
     if features.contains(naga::back::glsl::Features::SAMPLE_VARIABLES) {
-        result |= ffi::NagaGLSLBackFeatures_NagaGLSLBackFeatures_SAMPLE_VARIABLES;
+        result |= ffi::NagaGLSLBackFeatures_NagaGLSLBackFeatures_SAMPLE_VARIABLES
+            as ffi::NagaGLSLBackFeaturesFlags;
     }
     if features.contains(naga::back::glsl::Features::DYNAMIC_ARRAY_SIZE) {
-        result |= ffi::NagaGLSLBackFeatures_NagaGLSLBackFeatures_DYNAMIC_ARRAY_SIZE;
+        result |= ffi::NagaGLSLBackFeatures_NagaGLSLBackFeatures_DYNAMIC_ARRAY_SIZE
+            as ffi::NagaGLSLBackFeaturesFlags;
     }
     if features.contains(naga::back::glsl::Features::MULTI_VIEW) {
-        result |= ffi::NagaGLSLBackFeatures_NagaGLSLBackFeatures_MULTI_VIEW;
+        result |= ffi::NagaGLSLBackFeatures_NagaGLSLBackFeatures_MULTI_VIEW
+            as ffi::NagaGLSLBackFeaturesFlags;
     }
     if features.contains(naga::back::glsl::Features::TEXTURE_SAMPLES) {
-        result |= ffi::NagaGLSLBackFeatures_NagaGLSLBackFeatures_TEXTURE_SAMPLES;
+        result |= ffi::NagaGLSLBackFeatures_NagaGLSLBackFeatures_TEXTURE_SAMPLES
+            as ffi::NagaGLSLBackFeaturesFlags;
     }
     if features.contains(naga::back::glsl::Features::TEXTURE_LEVELS) {
-        result |= ffi::NagaGLSLBackFeatures_NagaGLSLBackFeatures_TEXTURE_LEVELS;
+        result |= ffi::NagaGLSLBackFeatures_NagaGLSLBackFeatures_TEXTURE_LEVELS
+            as ffi::NagaGLSLBackFeaturesFlags;
     }
     if features.contains(naga::back::glsl::Features::IMAGE_SIZE) {
-        result |= ffi::NagaGLSLBackFeatures_NagaGLSLBackFeatures_IMAGE_SIZE;
+        result |= ffi::NagaGLSLBackFeatures_NagaGLSLBackFeatures_IMAGE_SIZE
+            as ffi::NagaGLSLBackFeaturesFlags;
     }
     if features.contains(naga::back::glsl::Features::DUAL_SOURCE_BLENDING) {
-        result |= ffi::NagaGLSLBackFeatures_NagaGLSLBackFeatures_DUAL_SOURCE_BLENDING;
+        result |= ffi::NagaGLSLBackFeatures_NagaGLSLBackFeatures_DUAL_SOURCE_BLENDING
+            as ffi::NagaGLSLBackFeaturesFlags;
     }
     if features.contains(naga::back::glsl::Features::INSTANCE_INDEX) {
-        result |= ffi::NagaGLSLBackFeatures_NagaGLSLBackFeatures_INSTANCE_INDEX;
+        result |= ffi::NagaGLSLBackFeatures_NagaGLSLBackFeatures_INSTANCE_INDEX
+            as ffi::NagaGLSLBackFeaturesFlags;
     }
     if features.contains(naga::back::glsl::Features::TEXTURE_SHADOW_LOD) {
-        result |= ffi::NagaGLSLBackFeatures_NagaGLSLBackFeatures_TEXTURE_SHADOW_LOD;
+        result |= ffi::NagaGLSLBackFeatures_NagaGLSLBackFeatures_TEXTURE_SHADOW_LOD
+            as ffi::NagaGLSLBackFeaturesFlags;
     }
     if features.contains(naga::back::glsl::Features::SUBGROUP_OPERATIONS) {
-        result |= ffi::NagaGLSLBackFeatures_NagaGLSLBackFeatures_SUBGROUP_OPERATIONS;
+        result |= ffi::NagaGLSLBackFeatures_NagaGLSLBackFeatures_SUBGROUP_OPERATIONS
+            as ffi::NagaGLSLBackFeaturesFlags;
     }
     if features.contains(naga::back::glsl::Features::TEXTURE_ATOMICS) {
-        result |= ffi::NagaGLSLBackFeatures_NagaGLSLBackFeatures_TEXTURE_ATOMICS;
+        result |= ffi::NagaGLSLBackFeatures_NagaGLSLBackFeatures_TEXTURE_ATOMICS
+            as ffi::NagaGLSLBackFeaturesFlags;
     }
     if features.contains(naga::back::glsl::Features::SHADER_BARYCENTRICS) {
-        result |= ffi::NagaGLSLBackFeatures_NagaGLSLBackFeatures_SHADER_BARYCENTRICS;
+        result |= ffi::NagaGLSLBackFeatures_NagaGLSLBackFeatures_SHADER_BARYCENTRICS
+            as ffi::NagaGLSLBackFeaturesFlags;
     }
 
     // sigh

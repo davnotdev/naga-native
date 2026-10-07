@@ -426,6 +426,8 @@ pub fn spv_front_error_to_ffi(error: &naga::front::spv::Error) -> ffi::NagaSPVFr
         naga::front::spv::Error::UnsupportedSpecConstantOp(op) => todo!(),
         naga::front::spv::Error::InvalidSpecConstantOp(op) => todo!(),
         naga::front::spv::Error::SemanticError(cow) => todo!(),
-        naga::front::spv::Error::InconsistentFunctionParameterComparisonSampling(function_argument) => todo!(),
+        naga::front::spv::Error::InconsistentFunctionParameterComparisonSampling(
+            function_argument,
+        ) => todo!(),
     }
 }

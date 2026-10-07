@@ -28,7 +28,8 @@ pub unsafe extern "C" fn naga_front_glsl_parse(
             }
             Err(error) => {
                 let error = if (flags
-                    & ffi::NagaFrontResultOption_NagaFrontResultOption_FormattedErrorOnly)
+                    & (ffi::NagaFrontResultOption_NagaFrontResultOption_FormattedErrorOnly
+                        as ffi::NagaFrontResultOptionFlags))
                     != 0
                 {
                     ffi::NagaGLSLFrontResult__bindgen_ty_1 {
@@ -75,7 +76,8 @@ pub unsafe extern "C" fn naga_front_spv_parse(
             }
             Err(error) => {
                 let error = if (flags
-                    & ffi::NagaFrontResultOption_NagaFrontResultOption_FormattedErrorOnly)
+                    & (ffi::NagaFrontResultOption_NagaFrontResultOption_FormattedErrorOnly
+                        as ffi::NagaFrontResultOptionFlags))
                     != 0
                 {
                     ffi::NagaSPVFrontResult__bindgen_ty_1 {
@@ -121,7 +123,8 @@ pub unsafe extern "C" fn naga_front_wgsl_parse(
             }
             Err(error) => {
                 let error = if (flags
-                    & ffi::NagaFrontResultOption_NagaFrontResultOption_FormattedErrorOnly)
+                    & (ffi::NagaFrontResultOption_NagaFrontResultOption_FormattedErrorOnly
+                        as ffi::NagaFrontResultOptionFlags))
                     != 0
                 {
                     ffi::NagaWGSLFrontResult__bindgen_ty_1 {
@@ -146,7 +149,7 @@ pub unsafe extern "C" fn naga_front_wgsl_parse(
 #[unsafe(no_mangle)]
 pub unsafe extern "C" fn naga_valid_validator_new(
     flags: ffi::NagaValidationFlagsFlags,
-    capabilities: ffi::NagaCapabilities,
+    capabilities: ffi::NagaCapabilitiesFlags,
 ) -> ffi::NagaValidator {
     let flags = conv::validation_flags_to_naga(flags);
     let capabilities = conv::capabilities_to_naga(capabilities);
@@ -195,7 +198,8 @@ pub unsafe extern "C" fn naga_valid_validator_validate(
             }
             Err(error) => {
                 let error = if (flags
-                    & ffi::NagaValidateResultOption_NagaValidateResultOption_FormattedErrorOnly)
+                    & (ffi::NagaValidateResultOption_NagaValidateResultOption_FormattedErrorOnly
+                        as ffi::NagaValidateResultOptionFlags))
                     != 0
                 {
                     ffi::NagaValidateResult__bindgen_ty_1 {
@@ -319,16 +323,19 @@ pub unsafe extern "C" fn naga_back_glsl_write(
     let flags = unsafe { (*out_result).flags };
 
     let create_error = |error: naga::back::glsl::Error| unsafe {
-        let error =
-            if (flags & ffi::NagaWriteResultOption_NagaWriteResultOption_FormattedErrorOnly) != 0 {
-                ffi::NagaGLSLWriteResult__bindgen_ty_1 {
-                    fmt_error: conv::string_to_ffi(&error.to_string()),
-                }
-            } else {
-                ffi::NagaGLSLWriteResult__bindgen_ty_1 {
-                    error: conv::glsl_back_error_to_ffi(&error),
-                }
-            };
+        let error = if (flags
+            & (ffi::NagaWriteResultOption_NagaWriteResultOption_FormattedErrorOnly
+                as ffi::NagaWriteResultOptionFlags))
+            != 0
+        {
+            ffi::NagaGLSLWriteResult__bindgen_ty_1 {
+                fmt_error: conv::string_to_ffi(&error.to_string()),
+            }
+        } else {
+            ffi::NagaGLSLWriteResult__bindgen_ty_1 {
+                error: conv::glsl_back_error_to_ffi(&error),
+            }
+        };
         ffi::NagaGLSLWriteResult {
             flags,
             __bindgen_anon_1: error,
@@ -402,7 +409,8 @@ pub unsafe extern "C" fn naga_back_hlsl_write(
             }
             Err(error) => {
                 let error = if (flags
-                    & ffi::NagaWriteResultOption_NagaWriteResultOption_FormattedErrorOnly)
+                    & (ffi::NagaWriteResultOption_NagaWriteResultOption_FormattedErrorOnly
+                        as ffi::NagaWriteResultOptionFlags))
                     != 0
                 {
                     ffi::NagaHLSLWriteResult__bindgen_ty_1 {
@@ -459,7 +467,8 @@ pub unsafe extern "C" fn naga_back_msl_write(
             }
             Err(error) => {
                 let error = if (flags
-                    & ffi::NagaWriteResultOption_NagaWriteResultOption_FormattedErrorOnly)
+                    & (ffi::NagaWriteResultOption_NagaWriteResultOption_FormattedErrorOnly
+                        as ffi::NagaWriteResultOptionFlags))
                     != 0
                 {
                     ffi::NagaMSLWriteResult__bindgen_ty_1 {
@@ -522,7 +531,8 @@ pub unsafe extern "C" fn naga_back_spv_write(
             }
             Err(error) => {
                 let error = if (flags
-                    & ffi::NagaWriteResultOption_NagaWriteResultOption_FormattedErrorOnly)
+                    & (ffi::NagaWriteResultOption_NagaWriteResultOption_FormattedErrorOnly
+                        as ffi::NagaWriteResultOptionFlags))
                     != 0
                 {
                     ffi::NagaSPVWriteResult__bindgen_ty_1 {
@@ -576,7 +586,8 @@ pub unsafe extern "C" fn naga_back_wgsl_write(
             }
             Err(error) => {
                 let error = if (flags
-                    & ffi::NagaWriteResultOption_NagaWriteResultOption_FormattedErrorOnly)
+                    & (ffi::NagaWriteResultOption_NagaWriteResultOption_FormattedErrorOnly
+                        as ffi::NagaWriteResultOptionFlags))
                     != 0
                 {
                     ffi::NagaWGSLWriteResult__bindgen_ty_1 {
